@@ -40,7 +40,8 @@
 			<h:inputText id="nascimento" label="Data Nascimento"
 				value="#{participanteBean.participante.nascimento}" size="10" maxlength="10"
 				required="true">
-				<f:convertDateTime dateStyle="medium" />
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
+				<!--  <f:convertDateTime dateStyle="medium" />-->
 				<!--  convertendo a data para java.util.date medium dd/mm/yyyy-->
 			</h:inputText>
 			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Empresa:" for="empresa" />
@@ -54,7 +55,7 @@
 			<h:inputText id="cpf" label="CPF"
 				value="#{participanteBean.participante.cpf}" size="30" maxlength="30"
 				required="true" requiredMessage="Digite seu CPF.">
-				<f:validateLength minimum="10" maximum="30" />
+				<f:validateLength minimum="14" maximum="14" />
 			</h:inputText>
 			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Evento:" for="id" />
 			<h:selectOneMenu id="id" style="width:210px"

@@ -38,7 +38,7 @@
 			<h:inputText id="dthrEvento" label="Data Evento"
 				value="#{eventoBean.evento.dthrEvento}" size="10" maxlength="10"
 				required="true">
-				<f:convertDateTime dateStyle="medium" />
+				<f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-03:00" />
 				<!--  convertendo a data para java.util.date medium dd/mm/yyyy-->
 			</h:inputText>
 			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Local do Evento:" for="localEvento" />
