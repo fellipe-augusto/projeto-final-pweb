@@ -30,7 +30,7 @@
 			<h:inputText id="nome" label="Nome"
 				value="#{participanteBean.participante.nome}" size="30" maxlength="30"
 				required="true" requiredMessage="Digite seu nome.">
-				<f:validateLength minimum="10" maximum="30" />
+				<f:validateLength minimum="5" maximum="30" />
 			</h:inputText>
 
 			<!--  validador size tamanho do quadrado, validateLength tamanho minimo e tamanho maximo -->
@@ -56,20 +56,19 @@
 				required="true" requiredMessage="Digite seu CPF.">
 				<f:validateLength minimum="10" maximum="30" />
 			</h:inputText>
-			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Nº Evento:" for="evento_id" />
-			<h:inputText id="evento_id" label="Evento ID"
-				value="#{participanteBean.participante.evento_id}" size="5" maxlength="5"
-				required="true" requiredMessage="Digite o número do evento">
-				<f:validateLength minimum="1" maximum="5" />
-			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Evento:" for="id" />
+			<h:selectOneMenu id="id" style="width:210px"
+				value="#{participanteBean.participante.evento_id}" required="true"
+				requiredMessage="Evento deve ser selecionado">
+				<f:selectItem itemLabel=" - Selecione uma opção - " itemValue="" />
+				<f:selectItems value="#{eventoBean.eventos}"/>
+			</h:selectOneMenu>
 			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="E-Mail:" for="email" />
-			<h:panelGroup>
 				<h:inputText id="email" label="E-Mail"
 					value="#{participanteBean.participante.email}" size="50" maxlength="50"
 					required="true" validatorMessage="e-Mail inválido">
 					<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
 				</h:inputText>
-			</h:panelGroup>
 		</h:panelGrid>
 		<br></br>
 		<hr></hr>
