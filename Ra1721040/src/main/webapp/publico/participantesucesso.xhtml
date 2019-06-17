@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<h:head>
+	<title>Cadastro de Participante</title>
+</h:head>
+
+<h:body>
+	<style type="text/css">
+   		p {font: 18px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<p>
+	<strong><h:outputText value="#{participanteBean.participante.nome}" /></strong>, seja bem-vindo!
+	
+	Seu cadastro foi efetuado com sucesso.
+	</p>
+	<h:button value="Voltar" outcome="/index.xhtml" />
+
+</h:body>
+</html>

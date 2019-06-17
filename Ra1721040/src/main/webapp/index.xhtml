@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<title>Projeto Final</title>
+</h:head>
+<h:body>
+	<style type="text/css">
+   		h1 {font: 30px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<h1>Projeto Final</h1>
+	<hr></hr>
+	<h:form>
+		<h:commandLink style="font: 24px Segoe UI, sans-serif;" value="Novo Participante" action="#{participanteBean.novo}" />
+		<br/>
+		<br/>
+		<h:commandLink style="font: 24px Segoe UI, sans-serif;" value="Novo Evento" action="#{eventoBean.novo}" />
+		<br/>
+		<br/>
+		<h:commandLink style="font: 24px Segoe UI, sans-serif;" value="Lista de Participantes e Eventos" action="#{participanteBean.listagem}" />
+	</h:form>
+	<hr></hr>
+</h:body>
+</html>

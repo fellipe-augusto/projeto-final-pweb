@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Participante</title>
+</h:head>
+
+<h:body>
+	<style type="text/css">
+   		h1 {font: 30px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<h1>Cadastro de Participante</h1>
+	<hr></hr>
+	<h:form id="cadastro">
+		<!--  se nao colocado o messages as mensagens de erro de validacao e conversao do form nao aparecerao -->
+		<h:messages />
+		<!--  como tem a propriedade participante dentro da Bean chama assim  -->
+		<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
+		<h:inputHidden value="#{participanteBean.participante.codigo}" />
+
+		<h:panelGrid columns="4"
+			columnClasses="cellGridFormLabel,none,cellGridFormLabel,none"
+			cellpadding="10" cellspacing="1">
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Nome:" for="nome" />
+			<h:inputText id="nome" label="Nome"
+				value="#{participanteBean.participante.nome}" size="30" maxlength="30"
+				required="true" requiredMessage="Digite seu nome.">
+				<f:validateLength minimum="10" maximum="30" />
+			</h:inputText>
+
+			<!--  validador size tamanho do quadrado, validateLength tamanho minimo e tamanho maximo -->
+			<h:outputText value="" />
+
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Data Nascimento:" for="nascimento" />
+			<h:inputText id="nascimento" label="Data Nascimento"
+				value="#{participanteBean.participante.nascimento}" size="10" maxlength="10"
+				required="true">
+				<f:convertDateTime dateStyle="medium" />
+				<!--  convertendo a data para java.util.date medium dd/mm/yyyy-->
+			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Empresa:" for="empresa" />
+			<h:inputText id="empresa" label="Empresa"
+				value="#{participanteBean.participante.empresa}" size="30" maxlength="30"
+				required="true" requiredMessage="Digite o nome da empresa.">
+				<f:validateLength maximum="30" />
+			</h:inputText>
+			
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="CPF:" for="cpf" />
+			<h:inputText id="cpf" label="CPF"
+				value="#{participanteBean.participante.cpf}" size="30" maxlength="30"
+				required="true" requiredMessage="Digite seu CPF.">
+				<f:validateLength minimum="10" maximum="30" />
+			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Nº Evento:" for="evento_id" />
+			<h:inputText id="evento_id" label="Evento ID"
+				value="#{participanteBean.participante.evento_id}" size="5" maxlength="5"
+				required="true" requiredMessage="Digite o número do evento">
+				<f:validateLength minimum="1" maximum="5" />
+			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="E-Mail:" for="email" />
+			<h:panelGroup>
+				<h:inputText id="email" label="E-Mail"
+					value="#{participanteBean.participante.email}" size="50" maxlength="50"
+					required="true" validatorMessage="e-Mail inválido">
+					<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+				</h:inputText>
+			</h:panelGroup>
+		</h:panelGrid>
+		<br></br>
+		<hr></hr>
+		<h:commandButton value="Salvar" action="#{participanteBean.salvar}" />
+	
+		<h:button value="Voltar" outcome="/index.xhtml" />
+		<br />
+	</h:form>
+</h:body>
+</html>

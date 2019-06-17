@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Evento</title>
+</h:head>
+
+<h:body>
+	<h1>Cadastro de Evento</h1>
+	<h:form id="cadastro">
+		<!--  se nao colocado o messages as mensagens de erro de validacao e conversao do form nao aparecerao -->
+		<h:messages />
+
+	<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
+		<h:inputHidden value="#{eventoBean.evento.id}" />
+	
+
+		
+
+		<h:commandButton value="Salvar" action="#{eventoBean.salvar}"  id="Salvar" />
+
+		<h:button value="Voltar" outcome="/index.xhtml" />
+		<br />
+	</h:form>
+</h:body>
+</html>

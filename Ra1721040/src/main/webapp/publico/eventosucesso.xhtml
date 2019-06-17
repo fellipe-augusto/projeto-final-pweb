@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<h:head>
+	<title>Cadastro de Evento</title>
+</h:head>
+
+<h:body>
+	<style type="text/css">
+   		p {font: 18px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<p>
+	O evento <strong><h:outputText value="#{eventoBean.evento.nomeEvento}" /></strong> foi criado com sucesso!
+	<br></br>
+	<strong>Data: </strong> <h:outputText value="#{eventoBean.evento.dthrEvento}" />
+	<br></br>
+	<strong>Local: </strong> <h:outputText value="#{eventoBean.evento.localEvento}" />
+	<br></br>
+	</p>
+	<br/>
+	<h:button value="Voltar" outcome="/index.xhtml" />
+
+</h:body>
+</html>

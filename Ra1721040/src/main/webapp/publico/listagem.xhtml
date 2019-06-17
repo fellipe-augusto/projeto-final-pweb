@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Listagem de Participantes e Eventos</title>
+</h:head>
+
+<h:body>
+	<style type="text/css">
+		.tabela {border: 1px solid #478dff;}
+		.cabecalho {text-align: center;font: 14px Segoe UI, sans-serif;font-weight: bold;color: Snow;background:  #5b5b5b;}
+		.linha {text-align: center;font: 14px Segoe UI, sans-serif;font-weight: normal;color: Snow;background: #478dff;}
+	</style>
+	<style type="text/css">
+   		h1 {font: 30px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<h1>Lista de Participantes e Eventos</h1>
+	<hr></hr>
+	<style type="text/css">
+   		h2 {font: 30px Segoe UI, sans-serif;}
+ 	</style>
+	<h2>Participantes:</h2>
+	<h:form id="listagem">
+		<h:dataTable value="#{participanteBean.listaParticipantes}" var="item"
+			styleClass="tabela"
+			headerClass="cabecalho"
+			rowClasses="linha"
+			emptyMessage="Nenhum Registro Encontrado" paginator="true" rows="10"
+			aginatorPosition="bottom" selectionMode="single"
+			selection="#{participanteBean.participante}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Código" />
+				</f:facet>
+				<h:outputText value="#{item.codigo}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{item.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Data de Nascimento" />
+				</f:facet>
+				<h:outputText value="#{item.nascimento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					 <h:outputText value="E-mail" />
+				</f:facet>
+				<h:outputText value="#{item.email}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Empresa" />
+				</f:facet>
+				<h:outputText value="#{item.empresa}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="CPF" />
+				</f:facet>
+				<h:outputText value="#{item.cpf}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nº do Evento" />
+				</f:facet>
+				<h:outputText value="#{item.evento_id}" />
+			</h:column>
+		</h:dataTable>
+		<br></br>
+		<hr></hr>
+		<h2>Eventos:</h2>
+		<h:dataTable value="#{eventoBean.listaEventos}" var="item"
+			styleClass="tabela"
+			headerClass="cabecalho"
+			rowClasses="linha"
+			emptyMessage="Nenhum Registro Encontrado" paginator="true" rows="10"
+			aginatorPosition="bottom" selectionMode="single"
+			selection="#{eventoBean.evento}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nº do Evento" />
+				</f:facet>
+				<h:outputText value="#{item.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome do Evento" />
+				</f:facet>
+				<h:outputText value="#{item.nomeEvento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Data" />
+				</f:facet>
+				<h:outputText value="#{item.dthrEvento}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Local do Evento" />
+				</f:facet>
+				<h:outputText value="#{item.localEvento}" />
+			</h:column>
+		</h:dataTable>
+		<br></br>
+		<br></br>
+		<hr></hr>
+		<h:button value="Voltar" outcome="/index.xhtml" />
+	</h:form>
+</h:body>
+</html>

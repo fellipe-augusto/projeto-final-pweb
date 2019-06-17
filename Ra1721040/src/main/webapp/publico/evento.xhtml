@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Evento</title>
+</h:head>
+
+<h:body>
+	<style type="text/css">
+   		h1 {font: 30px Segoe UI, sans-serif;text-align: center}
+ 	</style>
+	<h1>Cadastro de Evento</h1>
+	<hr></hr>
+	<h:form id="cadastro">
+		<!--  se nao colocado o messages as mensagens de erro de validacao e conversao do form nao aparecerao -->
+		<h:messages />
+
+	<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
+		<h:inputHidden value="#{eventoBean.evento.id}" />
+		
+	
+		<h:panelGrid columns="4"
+		columnClasses="cellGridFormLabel,none,cellGridFormLabel,none"
+			cellpadding="10" cellspacing="1">
+			
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Nome do Evento:" for="nomeEvento" />
+			<h:inputText id="nomeEvento" label="NomeEvento"
+				value="#{eventoBean.evento.nomeEvento}" size="30" maxlength="30"
+				required="true" requiredMessage="Digite o nome do evento.">
+				<f:validateLength minimum="5" maximum="30" />
+			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Data do Evento:" for="dthrEvento" />
+			<h:inputText id="dthrEvento" label="Data Evento"
+				value="#{eventoBean.evento.dthrEvento}" size="10" maxlength="10"
+				required="true">
+				<f:convertDateTime dateStyle="medium" />
+				<!--  convertendo a data para java.util.date medium dd/mm/yyyy-->
+			</h:inputText>
+			<h:outputLabel style="font: 18px Segoe UI, sans-serif" value="Local do Evento:" for="localEvento" />
+			<h:inputText id="localEvento" label="Local Evento"
+				value="#{eventoBean.evento.localEvento}" size="30" maxlength="30"
+				required="true" requiredMessage="Digite o nome do local do evento.">
+				<f:validateLength minimum="5" maximum="30" />
+			</h:inputText>
+		</h:panelGrid>
+		
+		<br></br>
+		<hr></hr>
+		<h:commandButton value="Salvar" action="#{eventoBean.salvar}"  id="Salvar" />
+
+		<h:button value="Voltar" outcome="/index.xhtml" />
+		<br />
+	</h:form>
+</h:body>
+</html>
